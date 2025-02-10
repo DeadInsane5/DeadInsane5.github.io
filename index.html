@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cal</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="./main.js" defer></script>
 </head>
+
 <body>
     <table id="myTable">
         <tr>
@@ -35,54 +38,56 @@
 
         <tr>
             <td>Mo</td>
-            <td colspan="2">PCC Lab</td>
-            <td>Maths</td>
-            <td>Phy</td>
+            <td class="lec" colspan="2">PCC Lab</td>
+            <td class="lec">Maths</td>
+            <td class="lec">Phy</td>
             <td rowspan="5">RECESS</td>
-            <td colspan="2">EG Lab</td>
-            <td>EG</td>
+            <td class="lec" colspan="2">EG Lab</td>
+            <td class="lec">EG</td>
             <td></td>
         </tr>
         <tr>
             <td>Tu</td>
             <td></td>
-            <td>IKS</td>
-            <td colspan="2">IKS Lab</td>
-            <td>Chem</td>
-            <td>PP</td>
-            <td>PCC</td>
+            <td class="lec">IKS</td>
+            <td class="lec" colspan="2">IKS Lab</td>
+            <td class="lec">Chem</td>
+            <td class="lec">PP</td>
+            <td class="lec">PCC</td>
             <td></td>
         </tr>
         <tr>
             <td>We</td>
             <td></td>
-            <td>IKS</td>
-            <td colspan="2">SS & CS Lab</td>
-            <td colspan="3">PHY/MATHS/CHEM</td>
+            <td class="lec">IKS</td>
+            <td class="lec" colspan="2">SS & CS Lab</td>
+            <td class="lec" colspan="3">PHY/MATHS/CHEM</td>
             <td></td>
         </tr>
         <tr>
             <td>Th</td>
             <td></td>
-            <td>EG</td>
-            <td colspan="2">Workshop</td>
-            <td>SS & CS</td>
-            <td>Maths</td>
-            <td>PCC</td>
+            <td class="lec">EG</td>
+            <td class="lec" colspan="2">Workshop</td>
+            <td class="lec">SS & CS</td>
+            <td class="lec">Maths</td>
+            <td class="lec">PCC</td>
             <td></td>
         </tr>
         <tr>
             <td>Fr</td>
             <td></td>
-            <td>SS & CS</td>
-            <td>Chem</td>
-            <td>EG</td>
-            <td>PP</td>
-            <td>Phy</td>
-            <td colspan="2">PP Lab</td>
+            <td class="lec">SS & CS</td>
+            <td class="lec">Chem</td>
+            <td class="lec">EG</td>
+            <td class="lec">PP</td>
+            <td class="lec">Phy</td>
+            <td class="lec" colspan="2">PP Lab</td>
         </tr>
 
     </table>
-    <script src="./main.js"></script>
+    <div class="container"></div>
+    <div class="attendanceContainer"></div>
 </body>
+
 </html>
