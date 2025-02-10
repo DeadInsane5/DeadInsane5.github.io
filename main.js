@@ -1,9 +1,8 @@
-const tableCells = document.querySelectorAll('#myTable td');
+const tableCells = document.querySelectorAll(".lec")
 
-tableCells.forEach(td => {
-    td.addEventListener('click', function(event) {
+tableCells.forEach(tableCell => {
+    tableCell.addEventListener("click", function(event) {
         alert("You clicked on: " + event.target.textContent);
-    }
-    );
-}
-);
+    });
+})
+
