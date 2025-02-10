@@ -20,7 +20,7 @@ function prompt(event) {
     //prompt
     const prompt = document.createElement("div")
     prompt.classList.add("prompt")
-    prompt.textContent = "Did you attend " + event.textContent + " ?"
+    prompt.textContent = "Did you attend " + event.target.textContent + " ?"
 
     //no button
     const button1 = document.createElement("button")
