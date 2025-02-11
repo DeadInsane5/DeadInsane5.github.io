@@ -1,3 +1,15 @@
+let attendList = {
+    "Phy" : 0,
+    "Chem" : 0,
+    "Maths" : 0,
+    "EG" : 0,
+    "PCC" : 0,
+    "PP" : 0,
+    "SS&CS" : 0,
+    "IKS" : 0,
+    "WK" : 0
+}
+
 const tableCells = document.querySelectorAll(".lec")
 
 tableCells.forEach(tableCell => {
@@ -5,6 +17,14 @@ tableCells.forEach(tableCell => {
         prompt(event)
     });
 })
+
+for (let sub in attendList) {
+    const attendanceContainer = document.querySelector(".attendanceContainer")
+    
+    const attendanceItem = document.createElement("p")
+    attendanceItem.textContent = sub + " : " + attendList[sub]
+    attendanceContainer.appendChild(attendanceItem)
+}
 
 function prompt(event) {
     //container
