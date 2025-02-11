@@ -1,13 +1,13 @@
-function prompt(event){
-    const container = document.querySelector(".promptContainer")
+function prompt(event) {
+    const container = document.querySelector(".promptContainer");
 
-    container.replaceChildren("")
+    container.replaceChildren("");
 
-    const prompt = document.createElement("p")
-    let sub = event.target.textContent
-    prompt.textContent = `Did you attend ${sub}?`
+    const prompt = document.createElement("p");
+    let sub = event.target.textContent;
+    prompt.textContent = `Did you attend ${sub}?`;
 
-    container.appendChild(prompt)
+    container.appendChild(prompt);
 }
 
-export default prompt
+export default prompt;
