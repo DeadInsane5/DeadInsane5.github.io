@@ -20,7 +20,8 @@ let attListA = {
     "PP": 0,
     "SS&CS": 0,
     "IKS": 0,
-    "WK": 0,
+    "Workshop": 0,
+    "Recess" : 0,
 };
 
 let attListH = {
@@ -32,7 +33,8 @@ let attListH = {
     "PP": 0,
     "SS&CS": 0,
     "IKS": 0,
-    "WK": 0,
+    "Workshop": 0,
+    "Recess" : 0,
 }
 
 const attContainer = document.querySelector(".attContainer");
