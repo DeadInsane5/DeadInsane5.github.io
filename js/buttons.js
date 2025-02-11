@@ -1,4 +1,4 @@
-import attList from "./main.js";
+import { attListA, attListH } from "./main.js";
 
 function buttons(subject) {
     const buttonContainer = document.querySelector(".buttonContainer");
@@ -7,11 +7,16 @@ function buttons(subject) {
 
     const noButton = document.createElement("button");
     noButton.textContent = "No";
+    noButton.addEventListener("click", () => {
+        attListH[subject] = attListH[subject] + 1;
+        updateAttendanceDisplay(subject);
+    })
 
     const yesButton = document.createElement("button");
     yesButton.textContent = "Yes";
     yesButton.addEventListener("click", () => {
-        attList[subject] = attList[subject] + 1;
+        attListA[subject] = attListA[subject] + 1;
+        attListH[subject] = attListH[subject] + 1;
         updateAttendanceDisplay(subject);
     });
 
@@ -24,7 +29,7 @@ function updateAttendanceDisplay(subject) {
     const attItems = attContainer.querySelectorAll("p");
     attItems.forEach(attItem => {
         if (attItem.textContent.startsWith(subject)) {
-            attItem.textContent = `${subject} : ${attList[subject]}`;
+            attItem.textContent = `${subject} : ${(attListA[subject]/attListH[subject])*100}% [${attListA[subject]} out of ${attListH[subject]}  lectures attended]`;
         }
     });
 }

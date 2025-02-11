@@ -11,7 +11,7 @@ tableCells.forEach(tableCell => {
     });
 });
 
-let attList = {
+let attListA = {
     "Phy": 0,
     "Chem": 0,
     "Maths": 0,
@@ -23,11 +23,26 @@ let attList = {
     "WK": 0,
 };
 
+let attListH = {
+    "Phy": 0,
+    "Chem": 0,
+    "Maths": 0,
+    "EG": 0,
+    "PCC": 0,
+    "PP": 0,
+    "SS&CS": 0,
+    "IKS": 0,
+    "WK": 0,
+}
+
 const attContainer = document.querySelector(".attContainer");
-for (let sub in attList) {
+for (let subject in attListA) {
     const attItem = document.createElement("p");
-    attItem.textContent = `${sub} : ${attList[sub]}`;
+    attItem.textContent = `${subject} : ${(attListA[subject]/attListH[subject])*100}% [${attListA[subject]} out of ${attListH[subject]} lectures attended]`;
     attContainer.appendChild(attItem);
 }
 
-export default attList;
+export {
+    attListA,
+    attListH
+}
