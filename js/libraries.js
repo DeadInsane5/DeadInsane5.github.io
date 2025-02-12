@@ -1,3 +1,5 @@
+import { attListA, attListH, attListLabA, attListLabH, attend, bunk } from "./database.js"
+
 function tableCells() {
     const container = document.querySelector(".inputContainer")
 
@@ -21,17 +23,19 @@ function prompt(e, container) {
 }
 
 function buttons(e, container) {
-    const sub = e.target.id + e.target.attr("class")
+    const sub = e.target.id + e.target.classList.value
 
     const noButton = document.createElement("button")
     noButton.textContent = "No"
     noButton.addEventListener("click", () => {
+        bunk(attListH, sub)
         console.log(sub)
     })
 
     const yesButton = document.createElement("button")
     yesButton.textContent = "Yes"
     yesButton.addEventListener("click", () => {
+        attend(attListA, attListH, sub)
         console.log(sub)
     })
 
