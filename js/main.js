@@ -65,8 +65,14 @@ for (let subject in attListA) {
     }
 
     const attItem = document.createElement("p");
-    attItem.textContent = `${subject} : ${(attListA[subject] / attListH[subject]) * 100}% [${attListA[subject]} out of ${attListH[subject]} lectures attended] | ${attListLabA[subject]} out of ${attListLabH[subject]} labs attended`;
-    attContainer.appendChild(attItem);
+    if (isNaN(attListA[subject] / attListH[subject])) {
+        attItem.textContent = `${subject} : ${(0) * 100}% [${attListA[subject]} out of ${attListH[subject]} lectures attended] | ${attListLabA[subject]} out of ${attListLabH[subject]} labs attended`;
+        attContainer.appendChild(attItem);
+    }
+    else {
+        attItem.textContent = `${subject} : ${(attListA[subject] / attListH[subject]) * 100}% [${attListA[subject]} out of ${attListH[subject]} lectures attended] | ${attListLabA[subject]} out of ${attListLabH[subject]} labs attended`;
+        attContainer.appendChild(attItem);
+    }
 }
 
 export {
