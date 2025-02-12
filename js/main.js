@@ -35,7 +35,8 @@ let attListH = {
     "IKS": 0,
     "Workshop": 0,
     "Recess": 0,
-}
+};
+
 let attListLabA = {
     "Phy": 0,
     "Chem": 0,
@@ -45,7 +46,8 @@ let attListLabA = {
     "PP": 0,
     "SS&CS": 0,
     "IKS": 0,
-}
+};
+
 let attListLabH = {
     "Phy": 0,
     "Chem": 0,
@@ -55,24 +57,22 @@ let attListLabH = {
     "PP": 0,
     "SS&CS": 0,
     "IKS": 0,
-}
+};
 
 const attContainer = document.querySelector(".attContainer");
 for (let subject in attListA) {
-    let subjectStr = subject.split(" ")
+    let subjectStr = subject.split(" ");
     if (subjectStr[1] == "Lab") {
-        subject = subjectStr[0]
+        subject = subjectStr[0];
     }
 
     const attItem = document.createElement("p");
-    if (isNaN(attListA[subject] / attListH[subject])) {
-        attItem.textContent = `${subject} : ${(0) * 100}% [${attListA[subject]} out of ${attListH[subject]} lectures attended] | ${attListLabA[subject]} out of ${attListLabH[subject]} labs attended`;
-        attContainer.appendChild(attItem);
+    if (subject !== "Workshop" && subject !== "Recess") {
+        attItem.textContent = `${subject} : ${(attListA[subject] / attListH[subject]) * 100}% [${attListA[subject]}/${attListH[subject]} lectures | ${attListLabA[subject]}/${attListLabH[subject]} labs]`;
+    } else {
+        attItem.textContent = `${subject} : ${(attListA[subject] / attListH[subject]) * 100}% [${attListA[subject]}/${attListH[subject]} lectures]`;
     }
-    else {
-        attItem.textContent = `${subject} : ${(attListA[subject] / attListH[subject]) * 100}% [${attListA[subject]} out of ${attListH[subject]} lectures attended] | ${attListLabA[subject]} out of ${attListLabH[subject]} labs attended`;
-        attContainer.appendChild(attItem);
-    }
+    attContainer.appendChild(attItem);
 }
 
 export {
@@ -80,4 +80,4 @@ export {
     attListH,
     attListLabA,
     attListLabH,
-}
+};
