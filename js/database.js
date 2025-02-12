@@ -9,7 +9,7 @@ let attListA = {
     "IKS": 0,
     "Workshop": 0,
     "Recess": 0,
-}
+};
 
 let attListH = {
     "Phy": 0,
@@ -22,7 +22,7 @@ let attListH = {
     "IKS": 0,
     "Workshop": 0,
     "Recess": 0,
-}
+};
 
 let attListLabA = {
     "Phy": 0,
@@ -33,7 +33,7 @@ let attListLabA = {
     "PP": 0,
     "SS&CS": 0,
     "IKS": 0,
-}
+};
 
 let attListLabH = {
     "Phy": 0,
@@ -44,24 +44,38 @@ let attListLabH = {
     "PP": 0,
     "SS&CS": 0,
     "IKS": 0,
+};
+
+function attend(sub, lab) {
+    if (lab) {
+        attListLabA[sub] += 1;
+        attListLabH[sub] += 1;
+    } else {
+        attListA[sub] += 1;
+        attListH[sub] += 1;
+    }
 }
 
-function attend(listA, listH, sub) {
-    listA[sub] += 1
-    listH[sub] += 1
-}
-function bunk(listH, sub) {
-    listH[sub] += 1
+function bunk(sub, lab) {
+    if (lab) {
+        attListLabH[sub] += 1;
+    } else {
+        attListH[sub] += 1;
+    }
 }
 
 function display(listA, listH, listLabA, listLabH, sub) {
-    if(sub !== "Workshop" && sub !== "Recess"){
-        let displayStr = `${sub} : ${(listA[sub] / listH[sub]) * 100}% [${listA[sub]}/${listH[sub]} lectures | ${listLabA[sub]}/${listLabH[sub]} labs]`
-        return displayStr
-    }
-    else{
-        let displayStr = `${sub} : ${(listA[sub] / listH[sub]) * 100}% [${listA[sub]}/${listH[sub]} lectures]`
-        return displayStr 
+    let attVal
+    let attValLab
+    isNaN((listA[sub] / listH[sub]) * 100) ? attVal = 0 : attVal=((listA[sub] / listH[sub]) * 100)
+    isNaN((listLabA[sub] / listLabH[sub]) * 100) ? attValLab = 0 : attValLab=((listLabA[sub] / listLabH[sub]) * 100)
+
+    if (sub !== "Workshop" && sub !== "Recess") {
+        let displayStr = `${sub} : Lec - ${attVal}% Lab - ${attValLab}% [${listA[sub]}/${listH[sub]} lectures | ${listLabA[sub]}/${listLabH[sub]} labs]`;
+        return displayStr;
+    } else {
+        let displayStr = `${sub} : ${attVal}% Lab - ${attValLab}% [${listA[sub]}/${listH[sub]} lectures]`;
+        return displayStr;
     }
 }
 
@@ -73,4 +87,4 @@ export {
     attend,
     bunk,
     display,
-}
+};
