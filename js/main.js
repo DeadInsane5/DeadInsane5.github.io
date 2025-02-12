@@ -66,11 +66,21 @@ for (let subject in attListA) {
         subject = subjectStr[0];
     }
 
+    const att = attListA[subject]/attListH[subject]
     const attItem = document.createElement("p");
-    if (subject !== "Workshop" && subject !== "Recess") {
-        attItem.textContent = `${subject} : ${(attListA[subject] / attListH[subject]) * 100}% [${attListA[subject]}/${attListH[subject]} lectures | ${attListLabA[subject]}/${attListLabH[subject]} labs]`;
-    } else {
-        attItem.textContent = `${subject} : ${(attListA[subject] / attListH[subject]) * 100}% [${attListA[subject]}/${attListH[subject]} lectures]`;
+    if (isNaN(att)) {
+        if (subject !== "Workshop" && subject !== "Recess") {
+            attItem.textContent = `${subject} : ${(0) * 100}% [${attListA[subject]}/${attListH[subject]} lectures | ${attListLabA[subject]}/${attListLabH[subject]} labs]`;
+        } else {
+            attItem.textContent = `${subject} : ${(0) * 100}% [${attListA[subject]}/${attListH[subject]} lectures]`;
+        }
+     }
+    else {
+        if (subject !== "Workshop" && subject !== "Recess") {
+            attItem.textContent = `${subject} : ${(att) * 100}% [${attListA[subject]}/${attListH[subject]} lectures | ${attListLabA[subject]}/${attListLabH[subject]} labs]`;
+        } else {
+            attItem.textContent = `${subject} : ${(att) * 100}% [${attListA[subject]}/${attListH[subject]} lectures]`;
+        }
     }
     attContainer.appendChild(attItem);
 }
